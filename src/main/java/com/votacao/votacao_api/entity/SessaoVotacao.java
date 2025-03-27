@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity()
+@Entity
 public class SessaoVotacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
