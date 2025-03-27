@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/sessoes")
 public class SessaoVotacaoController {
-    private final SessaoVotacaoService service;
+
+    private  SessaoVotacaoService service;
 
     public SessaoVotacaoController(SessaoVotacaoService service) {
         this.service = service;

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/pautas")
 public class PautaController {
 
-    private final PautaService pautaService;
+    private  PautaService pautaService;
 
     public PautaController(PautaService pautaService) {
         this.pautaService = pautaService;

@@ -1,6 +1,7 @@
 package com.votacao.votacao_api.controller;
 
 import com.votacao.votacao_api.validation.CpfValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class CpfValidationController {
 
     private static final Random RANDOM = new Random();
 
-
+    @Autowired
     private CpfValidationService cpfValidationService;
 
     @GetMapping("/{cpf}")

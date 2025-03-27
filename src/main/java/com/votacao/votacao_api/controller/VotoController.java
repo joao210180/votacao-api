@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("/api/v1/votos")
 public class VotoController {
 
-    private final VotoService service;
+    private  VotoService service;
 
     public VotoController(VotoService service) {
         this.service = service;
