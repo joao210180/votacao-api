@@ -8,4 +8,9 @@ spring:
     hibernate:
       ddl-auto: update
     generate-ddl: true
-    show-sql: false
+    show-sql: true
+
+
+# Perfil para AWS (ativo quando SPRING_PROFILES_ACTIVE=aws)
+server:
+  port: ${SERVER_PORT:8080}  # Porta exigida pelo Beanstalk

@@ -14,3 +14,7 @@ h2:
     spring:
       security:
         enabled: false
+
+# Configuração padrão (local)
+server:
+  port: 8080  # Porta local
