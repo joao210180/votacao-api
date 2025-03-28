@@ -6,6 +6,8 @@ import com.votacao.votacao_api.repository.PautaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class PautaService {
@@ -20,5 +22,8 @@ public class PautaService {
         pauta.setTitulo(pautaDTO.getTitulo());
         log.debug("Adding a new pauta with name [ titulo = {} ]", pautaDTO.getTitulo());
         return pautaRepository.save(pauta);
+    }
+    public List<Pauta> seExistem(){
+        return pautaRepository.findAll();
     }
 }
