@@ -31,7 +31,7 @@ public class DbLoader implements CommandLineRunner {
 
         log.info("Popular com pauta caso nao exite");
 
-        if (pautaService.seExistem().isEmpty()) {
+        if (!pautaService.tabelaPautaNaoEstaVazia()) {
 
             //cadastra pauta
             for (int i = 1; i < 11; i++) {

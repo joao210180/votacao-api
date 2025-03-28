@@ -23,7 +23,9 @@ public class PautaService {
         log.debug("Adding a new pauta with name [ titulo = {} ]", pautaDTO.getTitulo());
         return pautaRepository.save(pauta);
     }
-    public List<Pauta> seExistem(){
-        return pautaRepository.findAll();
+
+    public boolean tabelaPautaNaoEstaVazia() {
+        return pautaRepository.count() > 0;
     }
+
 }

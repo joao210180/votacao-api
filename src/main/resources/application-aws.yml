@@ -1,11 +1,16 @@
 spring:
   datasource:
     url: jdbc:mysql://datavotacao.cp48s4m8m6x8.sa-east-1.rds.amazonaws.com:3306/votacaoBanco?createDatabaseIfNotExist=true
-    username: admin
-    password: 0c0ZsGcFsoRnIXGx3Z0v
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
     generate-ddl: true
-    show-sql: false
+    show-sql: true
+
+
+# Perfil para AWS (ativo quando SPRING_PROFILES_ACTIVE=aws)   
+server:
+  port: ${SERVER_PORT:8080}  # Porta exigida pelo Beanstalk
