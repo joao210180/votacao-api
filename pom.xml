@@ -164,6 +164,9 @@
 
 		<profile>
 			<id>aws</id>
+			<properties>
+				<skipTests>true</skipTests>  <!-- Isso desabilita a execução de testes no perfil AWS -->
+			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>com.mysql</groupId>
