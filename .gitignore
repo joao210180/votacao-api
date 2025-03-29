@@ -1,5 +1,8 @@
-HELP.md
+# Excluindo target/ e arquivos .class
 target/
+*.class
+
+# Mantendo arquivos específicos do Maven Wrapper
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

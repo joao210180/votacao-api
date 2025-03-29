@@ -6,8 +6,6 @@ import com.votacao.votacao_api.repository.PautaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Slf4j
 @Service
 public class PautaService {
@@ -18,6 +16,11 @@ public class PautaService {
     }
 
     public Pauta criarPauta(PautaDTO pautaDTO) {
+
+        if(pautaDTO.getTitulo()==null || pautaDTO.getTitulo().isBlank()){
+            throw new RuntimeException("Titulo da Pauta nao pode ser vazio ou null");
+        }
+
         Pauta pauta = new Pauta();
         pauta.setTitulo(pautaDTO.getTitulo());
         log.debug("Adding a new pauta with name [ titulo = {} ]", pautaDTO.getTitulo());
