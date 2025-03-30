@@ -1,56 +1,99 @@
+
 # Sistema de Votação
 
-Este é um sistema de votação construído com Spring Boot, que permite a criação de pautas de votação, a abertura de sessões de votação e o registro de votos. Ele foi desenvolvido como  demonstração de como construir APIs RESTful com integração de banco de dados, utilizando boas práticas de arquitetura e design de software.
+Este é um sistema de votação que pode ser executado localmente ou em um ambiente AWS (RDS). Ele oferece funcionalidades para criar pautas, abrir sessões de votação e permitir votos, com validação da sessão e do status do usuário. O sistema é projetado para rodar de maneira fácil em diferentes ambientes.
+
+## Ambientes de Execução
+
+O sistema pode ser executado de duas maneiras diferentes, com configurações para desenvolvimento local e AWS (RDS):
+
+### 1. **Ambiente Local**
+- **Banco de dados**: H2 (em memória)
+- **Variação de perfil**: `SPRING_PROFILES_ACTIVE=local,data-load`
+- **Funcionalidade**: Carrega 10 pautas para testes automáticos em um banco de dados em memória.
+
+### 2. **Ambiente AWS**
+- **Banco de dados**: RDS da AWS
+- **Variação de perfil**: `SPRING_PROFILES_ACTIVE=aws`
+- **Funcionalidade**: Conecta-se a um banco de dados RDS na AWS.
+
+### Links de Acesso (Elastic Beanstalk):
+- **Ambiente de Desenvolvimento (DEV)**: [Swagger DEV](http://votacao-dev.sa-east-1.elasticbeanstalk.com/swagger-ui/index.html)
+- **Ambiente de Produção (PROD)**: [Swagger PROD](http://votacao-aws-prod.sa-east-1.elasticbeanstalk.com/swagger-ui/index.html)
 
 ## Funcionalidades
 
 - **Criar Pauta**: Permite criar uma nova pauta de votação.
 - **Abrir Sessão de Votação**: A partir de uma pauta existente, é possível abrir uma nova sessão de votação, onde o usuário pode definir a duração da sessão.
-- **Votar**: Os usuários podem votar em uma pauta, registrando votos a favor ou contra.
-- **Validação**: O sistema valida se a sessão de votação está ativa e se o usuário já votou.
+- **Votação**: Usuários podem votar em uma pauta, registrando votos a favor ou contra.
+- **Validação de Sessão**: O sistema valida se a sessão de votação está ativa e se o usuário já votou.
 
-## Tecnologias
+- **Funcionalidade extra (Tarefas bônus)**:  Validador de CPF para sistema externo como pede em: https://github.com/dbserver/desafio-votacao
+
+## Tecnologias Utilizadas
 
 Este projeto utiliza as seguintes tecnologias:
 
-- **Spring Boot**: Framework principal para a construção da API RESTful.
-- **H2 Database**: Banco de dados em memória utilizado para persistência dos dados durante o desenvolvimento e testes.
-- **Swagger**: Para a documentação da API.
-- **JUnit 5**: Para a execução dos testes automatizados.
+- **Java 17**: Aproveitando as novas funcionalidades e melhorias dessa versão.
+- **Spring Boot 3.4.4**: Framework principal para a construção da API RESTful.
+- **H2 Database**: Banco de dados em memória utilizado durante o desenvolvimento e testes.
+- **Swagger**: Para documentação interativa da API.
+- **JUnit 5**: Para a execução de testes automatizados.
 - **Maven**: Gerenciador de dependências e construção do projeto.
 
-## Instalação
+## Pré-requisitos
 
-### Pré-requisitos
+Certifique-se de ter os seguintes requisitos instalados na sua máquina:
 
-- Java 11 ou superior.
-- Maven 3.6 ou superior.
+- **Java 17** ou superior
+- **Maven 3.6** ou superior
 
-### Passos para execução
+## Passos para Execução
 
-1. Clone este repositório:
+### 1. Clonar o Repositório
 
-    ```bash
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-    ```
+Clone o repositório para sua máquina local:
 
-2. Navegue até a pasta do projeto:
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+```
 
-    ```bash
-    cd nome-do-repositorio
-    ```
+### 2. Navegar até a Pasta do Projeto
 
-3. Execute o seguinte comando para compilar e rodar a aplicação:
+Acesse o diretório do projeto clonado:
 
-    ```bash
-    mvn spring-boot:run
-    ```
+```bash
+cd nome-do-repositorio
+```
 
-A aplicação estará rodando em `http://localhost:8080`.
+### 3. Executar a Aplicação
+
+#### **Ambiente Local com H2 (Banco de Dados em Memória)**
+
+Para rodar a aplicação localmente com o banco H2 (em memória), execute o comando abaixo:
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=local,data-load
+```
+
+#### **Ambiente AWS (RDS da AWS)**
+
+Para rodar a aplicação com o banco RDS da AWS, execute o comando abaixo:
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=aws
+```
+
+A aplicação estará rodando em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
 
 ## Testes
 
-Este projeto inclui testes automatizados utilizando JUnit. Para rodar os testes, execute o seguinte comando:
+Este projeto inclui testes automatizados utilizando **JUnit**. Para rodar os testes, execute o seguinte comando:
 
 ```bash
 mvn test
+```
+
+Os testes serão executados no perfil perfil de DEV ou seja, local.
+
+
