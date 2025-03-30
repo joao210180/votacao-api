@@ -5,7 +5,7 @@ Este é um sistema de votação que pode ser executado localmente ou em um ambie
 
 ## Ambientes de Execução
 
-O sistema pode ser executado de duas maneiras diferentes, com configurações para desenvolvimento local e AWS (RDS):
+O sistema pode ser executado de duas maneiras diferentes, com configurações para desenvolvimento local (banco H2 em memória) ou aws (banco nas nuvem), e simulando produção implantado em AWS (RDS):
 
 ### 1. **Ambiente Local**
 - **Banco de dados**: H2 (em memória)
@@ -17,7 +17,7 @@ O sistema pode ser executado de duas maneiras diferentes, com configurações pa
 - **Variação de perfil**: `SPRING_PROFILES_ACTIVE=aws`
 - **Funcionalidade**: Conecta-se a um banco de dados RDS na AWS.
 
-### Links de Acesso (Elastic Beanstalk):
+### Links de Acesso nas nuvens (Elastic Beanstalk):
 - **Ambiente de Desenvolvimento (DEV)**: [Swagger DEV](http://votacao-dev.sa-east-1.elasticbeanstalk.com/swagger-ui/index.html)
 - **Ambiente de Produção (PROD)**: [Swagger PROD](http://votacao-aws-prod.sa-east-1.elasticbeanstalk.com/swagger-ui/index.html)
 
@@ -94,6 +94,6 @@ Este projeto inclui testes automatizados utilizando **JUnit**. Para rodar os tes
 mvn test
 ```
 
-Os testes serão executados no perfil perfil de DEV ou seja, local.
+Os testes serão executados no perfil de DEV ou seja, local.
 
 
