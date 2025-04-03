@@ -55,7 +55,7 @@ Certifique-se de ter os seguintes requisitos instalados na sua máquina:
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/joao210180/votacao-api.git
 ```
 
 ### 2. Navegar até a Pasta do Projeto
